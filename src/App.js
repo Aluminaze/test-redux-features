@@ -2,11 +2,17 @@ import React from "react";
 import "./App.css";
 import { Button } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
-import { decrementCount, incrementCount } from "./redux/actions";
+import {
+  addUser,
+  decrementCount,
+  deleteUser,
+  incrementCount,
+} from "./redux/actions";
 
 function App() {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.countReducer.count);
+  const users = useSelector((state) => state.usersReducer.users);
 
   return (
     <div
@@ -22,6 +28,21 @@ function App() {
       <Button variant="contained" onClick={() => dispatch(decrementCount(20))}>
         DECREMENT
       </Button>
+
+      <hr />
+      <Button variant="contained" onClick={() => dispatch(addUser(prompt()))}>
+        ADD USER
+      </Button>
+
+      {users.length ? (
+        users.map((userData, index) => (
+          <div key={index} onClick={() => dispatch(deleteUser(userData.id))}>
+            {userData.name}
+          </div>
+        ))
+      ) : (
+        <span>List with users is empty</span>
+      )}
     </div>
   );
 }
