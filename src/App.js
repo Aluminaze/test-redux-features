@@ -8,6 +8,7 @@ import {
   deleteUser,
   incrementCount,
 } from "./redux/actions";
+import { fetchUsersData } from "./redux/requests";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ function App() {
       <hr />
       <Button variant="contained" onClick={() => dispatch(addUser(prompt()))}>
         ADD USER
+      </Button>
+      <Button variant="contained" onClick={() => dispatch(fetchUsersData())}>
+        GET USERS
       </Button>
 
       {users.length ? (
