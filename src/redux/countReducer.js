@@ -1,7 +1,7 @@
 import { DECREMENT, INCREMENT } from "./types";
 
 const initialState = {
-  count: 5,
+  count: 0,
 };
 
 export const countReducer = (state = initialState, action) => {
