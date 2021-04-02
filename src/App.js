@@ -8,12 +8,13 @@ import {
   deleteUser,
   incrementCount,
 } from "./redux/actions";
-import { fetchUsersData } from "./redux/requests";
+import { fetchAlbums, fetchUsersData } from "./redux/requests";
 
 function App() {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.countReducer.count);
   const users = useSelector((state) => state.usersReducer.users);
+  const albums = useSelector((state) => state.albumsReducer.albums);
 
   return (
     <div
@@ -46,6 +47,21 @@ function App() {
         ))
       ) : (
         <span>List with users is empty</span>
+      )}
+
+      <hr />
+
+      <Button variant="contained" onClick={() => dispatch(fetchAlbums())}>
+        GET ALBUMS
+      </Button>
+      {albums.length ? (
+        albums.map((albumData, index) => (
+          <div key={index} onClick={() => {}}>
+            {albumData.title}
+          </div>
+        ))
+      ) : (
+        <span>EMPTY</span>
       )}
     </div>
   );
