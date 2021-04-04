@@ -1,4 +1,10 @@
-import { ADD_USER, DECREMENT, DELETE_USER, INCREMENT } from "./types";
+import {
+  ADD_USER,
+  ASYNC_INCERMENT,
+  DECREMENT,
+  DELETE_USER,
+  INCREMENT,
+} from "./types";
 
 export const incrementCount = (number) => {
   return {
@@ -25,5 +31,12 @@ export const deleteUser = (userId) => {
   return {
     type: DELETE_USER,
     payload: userId,
+  };
+};
+
+export const asyncIncrementCount = (number) => {
+  return {
+    type: ASYNC_INCERMENT,
+    payload: number,
   };
 };

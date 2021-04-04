@@ -4,6 +4,7 @@ import { Button } from "@material-ui/core";
 import { useSelector, useDispatch } from "react-redux";
 import {
   addUser,
+  asyncIncrementCount,
   decrementCount,
   deleteUser,
   incrementCount,
@@ -27,6 +28,13 @@ function App() {
       </Button>
       <Button variant="contained" onClick={() => dispatch(decrementCount(20))}>
         DECREMENT
+      </Button>
+
+      <Button
+        variant="contained"
+        onClick={() => dispatch(asyncIncrementCount(1))}
+      >
+        ASYNC INCREMENT
       </Button>
 
       <hr />
