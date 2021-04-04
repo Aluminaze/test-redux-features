@@ -7,6 +7,7 @@ import {
   asyncIncrementCount,
   decrementCount,
   deleteUser,
+  fetchUsers,
   incrementCount,
 } from "./redux/actions";
 
@@ -40,6 +41,9 @@ function App() {
       <hr />
       <Button variant="contained" onClick={() => dispatch(addUser(prompt()))}>
         ADD USER
+      </Button>
+      <Button variant="contained" onClick={() => dispatch(fetchUsers())}>
+        GET USERS
       </Button>
 
       {users.length ? (

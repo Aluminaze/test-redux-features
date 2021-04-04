@@ -3,6 +3,8 @@ import {
   ASYNC_INCERMENT,
   DECREMENT,
   DELETE_USER,
+  FETCH_USERS,
+  GET_USERS,
   INCREMENT,
 } from "./types";
 
@@ -31,6 +33,19 @@ export const deleteUser = (userId) => {
   return {
     type: DELETE_USER,
     payload: userId,
+  };
+};
+
+export const getUsers = (users) => {
+  return {
+    type: GET_USERS,
+    payload: users,
+  };
+};
+
+export const fetchUsers = () => {
+  return {
+    type: FETCH_USERS,
   };
 };
 
