@@ -1,4 +1,4 @@
-import { put, call, takeEvery, delay } from "redux-saga/effects";
+import { put, call, takeEvery } from "redux-saga/effects";
 import axios from "axios";
 import { getUsers } from "../actions";
 import { FETCH_USERS } from "../types";
